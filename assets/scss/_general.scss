@@ -1,0 +1,275 @@
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/montserrat-500.woff2') format('woff2'),
+       url('../fonts/montserrat-500.woff') format('woff'),
+       url('../fonts/montserrat-500.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/montserrat-600.woff2') format('woff2'),
+       url('../fonts/montserrat-600.woff') format('woff'),
+       url('../fonts/montserrat-600.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/quicksand-700.woff2') format('woff2'),
+       url('../fonts/quicksand-700.woff') format('woff'),
+       url('../fonts/quicksand-700.ttf') format('truetype');
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+	margin: 0;
+	font-family: $font-family-primary;
+	font-size: .875rem;
+	line-height: 1.78;
+	color: $medium-text;
+	@include breakpoint(lg) {
+		font-size: 1.125rem;
+	}
+}
+section {
+	scroll-margin-top: 60px;
+	@include breakpoint(md) {
+		scroll-margin-top: 76px;
+	}
+}
+picture {
+	display: flex;
+}
+figure {
+	margin: 0;
+}
+p {
+	margin: 0;
+}
+.container {
+	position: relative;
+	padding: 0 1rem;
+	margin: 0 auto;
+	&--full-width {
+		max-width: 100%;
+		padding: 0;
+	}
+}
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	&--content-center {
+		justify-content: center;
+	}
+}
+a {
+	text-decoration: none;
+	color: $medium-text;
+    transition: all .2s ease-in-out;
+}
+input {
+	border: 0;
+	font-family: $font-family-primary;
+	font-size: .875rem;
+	line-height: 1.6;
+	color: $medium-text;
+	@include breakpoint(lg) {
+		font-size: 1.25rem;
+	}
+	&::placeholder {
+		color: $medium-text;
+		opacity: 1;
+	}
+}
+.error-message {
+	color: $error-red;
+	font-size: .75rem;
+	line-height: 1.125;
+	transition: .2s;
+	@include breakpoint(md) {
+		font-size: .875rem;
+	}
+}
+.hidden {
+	display: none!important;
+}
+.visually-hidden {
+	visibility: hidden;
+}
+
+// Headings
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: $font-family-secondary;
+	margin: 0;
+	font-weight: $weight-bold;
+	color: $dark-text;
+}
+h1, h2, .h1, .h2 {
+	font-size: 1.75rem;
+	line-height: 1.2;
+	@include breakpoint(md) {
+		font-size: 2.5rem;
+	}
+	@include breakpoint(lg) {
+		font-size: 3.125rem;
+	}
+}
+h3, .h3 {
+	font-size: 1.125rem;
+	line-height: 1.23;
+	@include breakpoint(md) {
+		font-size: 1.25rem;
+	}
+	@include breakpoint(lg) {
+		font-size: 1.625rem;
+	}
+}
+
+// Buttons
+
+.button {
+	display: inline-block;
+	padding: .75rem 1rem;
+	border-radius: 21px;
+	font-family: $font-family-secondary;
+	font-size: 1rem;
+	font-weight: $weight-bold;
+	line-height: 1;
+	color: $white-text;
+	transition: .2s;
+	@include breakpoint(lg) {
+		padding: 1.125rem 2rem;
+		border-radius: 30px;
+		font-size: 1.25rem;
+	}
+}
+
+.primary-button {
+	border: 1px solid $dark-bg;
+	background: $dark-bg;
+	display: flex;
+	&--submit {
+		margin: 0 auto;
+		@include breakpoint(sm) {
+			margin: 0;
+		}
+	}
+	&:not([disabled]):hover & {
+		&__arrow {
+			transform: translateX(10px);
+		}
+	}
+	&[disabled] {
+		background-color: #D9DBE2;
+		border-color: #D9DBE2;
+	}
+	&__arrow {
+		margin-left: 1rem;
+		transition: .2s;
+		width: 24px;
+		@include breakpoint(lg) {
+			margin-left: 1.5rem;
+			width: 34px;
+		}
+	}
+}
+
+.dropdown-button-wrapper {
+	display: inline-block;
+	position: relative;
+	margin: 0 .5rem;
+	margin-bottom: .5rem;
+	@include breakpoint(md) {
+		margin: 0 .5rem 0 0;
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+	.dropdown-button {
+		border: 1px solid #F0F2F7;
+		font-size: .875rem;
+		background: $blue-bg;
+		position: relative;
+		z-index: 2;
+		&__arrow {
+			margin-left: .5rem;
+			transition: .2s;
+			width: 18px;
+			@include breakpoint(lg) {
+				margin-left: 2rem;
+				width: 24px;
+			}
+		}
+		&.open {
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
+			.dropdown-button__arrow {
+				transform: rotate(180deg);
+			}
+		}
+		@include breakpoint(md) {
+			font-size: 1rem;
+		}
+		@include breakpoint(lg) {
+			padding: 1rem 1.25rem;
+			border-radius: 27px;
+			font-size: 1.25rem;
+		}
+		@include breakpoint(xl) {
+			padding: 1.125rem 2rem;
+			border-radius: 30px;
+		}
+	}
+	.dropdown-menu {
+		display: none;
+		transform: translateY(-21px);
+		padding-top: 21px;
+		background: white;
+		border-radius: 0 0 21px 21px;
+		z-index: 1;
+		overflow: hidden;
+		width: 100%;
+		box-shadow: 0px 10px 50px 0px rgba(68,71,124,0.15);
+		@include breakpoint(md) {
+			position: absolute;
+		}
+		@include breakpoint(lg) {
+			border-radius: 0 0 27px 27px;
+			transform: translateY(-27px);
+			padding-top: 27px;
+		}
+		@include breakpoint(xl) {
+			border-radius: 0 0 30px 30px;
+			transform: translateY(-29px);
+			padding-top: 29px;
+		}
+		&__link {
+			display: block;
+			color: $medium-text;
+			font-size: 1rem;
+			padding: .5rem 1rem;
+			&:not(:last-child) {
+				border-bottom: 1px solid #EFF1F6;
+			}
+			@include breakpoint(lg) {
+				padding: 1rem 1.25rem;
+				font-size: 1.125rem;
+			}
+			@include breakpoint(xl) {
+				padding: 1rem 2rem;
+			}
+			&.active {
+				background-color: #A7C0E8;
+				color: $white-text;
+			}
+		}
+	}
+}
