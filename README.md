@@ -4,6 +4,8 @@ SCSS used
 
 Contact Form Front-end and Back-end validation
 
+Contact Form submits using AJAX
+
 HTML table filtration using JavaScript
 
 News block pictures load from Unsplash API
