@@ -1,4 +1,4 @@
-# Linards Ramza Tests
+# Linards Ramza Frontend
 
 SCSS used
 
